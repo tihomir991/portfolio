@@ -160,12 +160,6 @@ The portfolio is fully responsive with breakpoints:
 2. Run: `vercel --prod`
 3. Follow the prompts
 
-### GitHub Pages
-
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add to package.json scripts: `"deploy": "gh-pages -d dist"`
-3. Run: `npm run build && npm run deploy`
-
 ## 🤝 Contributing
 
 Feel free to fork this project and customize it for your own portfolio. If you make improvements that could benefit others, pull requests are welcome!
