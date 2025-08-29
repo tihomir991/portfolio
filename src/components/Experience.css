@@ -1,0 +1,446 @@
+.experience {
+  padding: 5rem 0;
+  background: white;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.experience-timeline-container {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.experience-item {
+  display: flex;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.experience-item:last-child .timeline-line {
+  display: none;
+}
+
+.experience-timeline {
+  position: relative;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-dot {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+  z-index: 2;
+  position: relative;
+}
+
+.timeline-line {
+  width: 2px;
+  height: 120px;
+  background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0.3));
+  margin-top: 1rem;
+}
+
+.experience-content {
+  flex: 1;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border-left: 4px solid #3498db;
+}
+
+.experience-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.experience-header {
+  margin-bottom: 1.5rem;
+}
+
+.experience-position {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.experience-company {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.experience-duration {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-weight: 500;
+  background: rgba(52, 152, 219, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.experience-achievements {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.experience-achievements li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5a6c7d;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.experience-achievements li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+  font-weight: bold;
+}
+
+.experience-technologies h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+
+.experience-summary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience {
+    padding: 3rem 0;
+  }
+
+  .experience-container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .experience-item {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .experience-timeline {
+    flex-direction: row;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+  }
+
+  .timeline-line {
+    width: 60px;
+    height: 2px;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+
+  .experience-content {
+    padding: 1.5rem;
+    border-left: none;
+    border-top: 4px solid #3498db;
+  }
+
+  .experience-position {
+    font-size: 1.2rem;
+  }
+
+  .experience-company {
+    font-size: 1rem;
+  }
+
+  .experience-achievements li {
+    font-size: 0.9rem;
+  }
+
+  .experience-summary {
+    padding: 2rem 1rem;
+  }
+
+  .summary-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-container {
+    padding: 0 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .experience-content {
+    padding: 1.25rem;
+  }
+
+  .experience-position {
+    font-size: 1.1rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .summary-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* React 19 Enhanced Features */
+.experience-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--neon-blue, #3498db);
+  color: var(--neon-blue, #3498db);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--neon-blue, #3498db);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-outline:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.experience-toggle {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #3498db;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.experience-toggle:hover {
+  background: #f8f9fa;
+  border-color: #3498db;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.toggle-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.experience-details {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.experience-details.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.experience-details.expanded {
+  max-height: 1000px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.experience-timeline-container.updating {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Enhanced accessibility for expanded states */
+.experience-item[aria-expanded="true"] .experience-content {
+  border-left: 3px solid var(--neon-blue, #3498db);
+}
+
+/* Enhanced hover states */
+.experience-item:hover .timeline-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.4);
+}
+
+/* Focus management for keyboard navigation */
+.experience-toggle:focus {
+  outline: 2px solid var(--neon-blue, #3498db);
+  outline-offset: 2px;
+}
+
+.experience-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.experience-toggle:focus-visible {
+  outline: 2px solid var(--neon-blue, #3498db);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+}
+
+/* Responsive enhancements for controls */
+@media (max-width: 768px) {
+  .experience-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-outline {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .experience-details,
+  .toggle-icon,
+  .experience-toggle,
+  .btn-outline {
+    transition: none;
+  }
+
+  .experience-details.collapsed {
+    display: none;
+  }
+
+  .experience-details.expanded {
+    display: block;
+  }
+}
