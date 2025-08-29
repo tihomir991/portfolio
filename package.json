@@ -9,7 +9,13 @@
     "type": "git",
     "url": "https://github.com/tihomir991/portfolio.git"
   },
-  "keywords": ["portfolio", "react", "typescript", "vite", "frontend"],
+  "keywords": [
+    "portfolio",
+    "react",
+    "typescript",
+    "vite",
+    "frontend"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "scripts": {
