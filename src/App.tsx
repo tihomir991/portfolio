@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { PortfolioProvider } from "./context/PortfolioContext";
+import ResponsiveProvider from "./context/ResponsiveContext";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import "./App.css";
 
@@ -90,9 +91,11 @@ const App: FC = () => {
         console.error("Application Error:", error, errorInfo);
       }}
     >
-      <PortfolioProvider>
-        <AppContent />
-      </PortfolioProvider>
+      <ResponsiveProvider>
+        <PortfolioProvider>
+          <AppContent />
+        </PortfolioProvider>
+      </ResponsiveProvider>
     </ErrorBoundary>
   );
 };

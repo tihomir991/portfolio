@@ -93,13 +93,6 @@ const Header: React.FC = () => {
             ))}
           </ul>
         </nav>
-
-        <div className="header__status">
-          <div className="status__indicator">
-            <div className="status__dot"></div>
-            <span className="status__text">ONLINE</span>
-          </div>
-        </div>
       </div>
 
       <div className="header__grid"></div>
