@@ -1,12 +1,18 @@
 import { usePortfolio } from "../hooks/usePortfolio";
+import { useScrollNavigation } from "../hooks/useScrollNavigation";
 import "./Footer.css";
 
 const Footer = () => {
   const { contactInfo } = usePortfolio();
+  const { scrollToTop, scrollToElement } = useScrollNavigation();
   const currentYear = new Date().getFullYear();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleNavigateToSection = (sectionId: string) => {
+    scrollToElement(sectionId, {
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
 
   return (
@@ -22,22 +28,34 @@ const Footer = () => {
             <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-links">
               <li>
-                <a href="#hero">Home</a>
+                <button onClick={() => handleNavigateToSection("home")} className="footer-link-button">
+                  Home
+                </button>
               </li>
               <li>
-                <a href="#about">About</a>
+                <button onClick={() => handleNavigateToSection("about")} className="footer-link-button">
+                  About
+                </button>
               </li>
               <li>
-                <a href="#skills">Skills</a>
+                <button onClick={() => handleNavigateToSection("about")} className="footer-link-button">
+                  Skills
+                </button>
               </li>
               <li>
-                <a href="#projects">Projects</a>
+                <button onClick={() => handleNavigateToSection("projects")} className="footer-link-button">
+                  Projects
+                </button>
               </li>
               <li>
-                <a href="#experience">Experience</a>
+                <button onClick={() => handleNavigateToSection("experience")} className="footer-link-button">
+                  Experience
+                </button>
               </li>
               <li>
-                <a href="#contact">Contact</a>
+                <button onClick={() => handleNavigateToSection("contact")} className="footer-link-button">
+                  Contact
+                </button>
               </li>
             </ul>
           </div>

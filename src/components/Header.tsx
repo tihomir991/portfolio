@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
+import { useScrollNavigation } from "../hooks/useScrollNavigation";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { scrollToElement } = useScrollNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +31,12 @@ const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavigateToSection = (sectionId: string) => {
+    scrollToElement(sectionId, {
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   };
 
   const navItems = [
@@ -81,7 +84,7 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <li key={item.id} className="nav__item">
                 <button
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavigateToSection(item.id)}
                   className={`nav__link ${activeSection === item.id ? "nav__link--active" : ""}`}
                   aria-label={`Navigate to ${item.label} section`}
                 >
