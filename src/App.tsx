@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/ErrorBoundary";
+import LoadingSpinner from "./components/LoadingSpinner";
 import { PortfolioProvider } from "./context/PortfolioContext";
 import ResponsiveProvider from "./context/ResponsiveContext";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
@@ -14,16 +15,6 @@ const Projects = lazy(() => import("./components/Projects"));
 const ExperienceComponent = lazy(() => import("./components/Experience"));
 const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
-
-/**
- * Loading component for Suspense fallback
- */
-const LoadingSpinner: FC = () => (
-  <div className="loading-container" role="status" aria-label="Loading content">
-    <div className="loading-spinner" />
-    <span className="sr-only">Loading...</span>
-  </div>
-);
 
 /**
  * Main app content wrapper with scroll animations

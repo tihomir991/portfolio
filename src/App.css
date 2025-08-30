@@ -18,50 +18,8 @@
   --shadow-green: 0 0 20px rgba(57, 255, 20, 0.5);
 }
 
-/* Loading Components */
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  padding: 2rem;
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--glass-border);
-  border-top: 3px solid var(--neon-blue);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 1rem;
-}
-
-.avatar-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: var(--glass-bg);
-  border-radius: 50%;
-}
-
-.avatar-loading .loading-spinner {
-  width: 30px;
-  height: 30px;
-  margin: 0;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/* Reset and Base Styles */
+* {
 
 /* Screen reader only text */
 .sr-only {
@@ -78,10 +36,6 @@
 
 /* Improved accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .loading-spinner {
-    animation: none;
-  }
-
   /* Disable all animations for users who prefer reduced motion */
   *,
   *::before,
