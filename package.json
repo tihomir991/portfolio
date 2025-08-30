@@ -15,7 +15,7 @@
     "vite",
     "frontend"
   ],
-  "author": "Your Name",
+  "author": "Tihomir Tomovic",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
