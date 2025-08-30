@@ -1,42 +1,32 @@
-import React, { useState, useEffect } from "react";
-import "./Header.css";
+import React from "react";
+import { useActiveSection } from "../hooks/useActiveSection";
 import { useScrollNavigation } from "../hooks/useScrollNavigation";
+import "./Header.css";
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-  const { scrollToElement } = useScrollNavigation();
+  const { isScrolled, activeSection } = useActiveSection({
+    sections: ["home", "about", "projects", "experience", "contact"],
+    scrollOffset: 100,
+    scrollThreshold: 50,
+  });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
-      const sections = ["home", "about", "projects", "experience", "contact"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollToElement, ensureActiveSectionInView, setSelectedNavItem, selectedNavItem } = useScrollNavigation({
+    activeSection,
+    autoScrollToActiveSection: false, // Set to true if you want automatic scrolling
+  });
 
   const handleNavigateToSection = (sectionId: string) => {
+    setSelectedNavItem(sectionId);
+    // Scroll to the target section
     scrollToElement(sectionId, {
       behavior: "smooth",
       block: "start",
       inline: "nearest",
     });
+  };
+
+  const handleEnsureActiveSectionInView = () => {
+    ensureActiveSectionInView();
   };
 
   const navItems = [
@@ -51,7 +41,7 @@ const Header: React.FC = () => {
     <header className={`header ${isScrolled ? "header--scrolled" : ""}`}>
       <div className="header__container">
         <div className="header__logo">
-          <div className="logo__container">
+          <div className="logo__container" onClick={handleEnsureActiveSectionInView} title="Ensure active section is in view" style={{ cursor: "pointer" }}>
             <div className="logo__icon">
               <div className="logo__hexagon">
                 <div className="hexagon__inner">
@@ -85,7 +75,7 @@ const Header: React.FC = () => {
               <li key={item.id} className="nav__item">
                 <button
                   onClick={() => handleNavigateToSection(item.id)}
-                  className={`nav__link ${activeSection === item.id ? "nav__link--active" : ""}`}
+                  className={`nav__link ${selectedNavItem === item.id ? "nav__link--active" : ""}`}
                   aria-label={`Navigate to ${item.label} section`}
                 >
                   <span className="nav__number">{item.number}</span>
