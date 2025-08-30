@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-title">John Doe</h3>
+            <h3 className="footer-title">Tihomir</h3>
             <p className="footer-description">Frontend Developer passionate about creating beautiful, functional, and user-friendly web experiences.</p>
           </div>
 
@@ -82,8 +82,8 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <div className="footer-bottom-content">
-            <p className="copyright">© {currentYear} John Doe. All rights reserved.</p>
-            <p className="built-with">Built with React, TypeScript & ❤️</p>
+            <p className="copyright">© {currentYear} Tihomir. All rights reserved.</p>
+            <p className="built-with">Built with React, TypeScript</p>
             <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
               ↑
             </button>

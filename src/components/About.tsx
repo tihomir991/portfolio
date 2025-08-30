@@ -13,7 +13,7 @@ const About: React.FC = () => {
         <div className="about-content">
           <div className="about-text">
             <div className="about-intro">
-              <h3>Hello! I'm John Doe</h3>
+              <h3>Hello! I'm Tihomir</h3>
               <p>
                 I'm a passionate Frontend Developer with over 4 years of experience creating engaging and user-friendly web applications. I love turning complex problems into
                 simple, beautiful, and intuitive solutions.
@@ -58,7 +58,7 @@ const About: React.FC = () => {
             <div className="about-photo">
               <img
                 src="/placeholder-about.jpg"
-                alt="John Doe working on a project"
+                alt="Tihomir working on a project"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = "none";

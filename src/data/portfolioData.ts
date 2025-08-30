@@ -1,21 +1,22 @@
 import type { Project, Experience, ContactInfo, PersonalInfo } from "../types";
+import { generateShortId } from "../utils/generateId";
 
 // Personal Information
 export const personalInfo: PersonalInfo = {
-  firstName: "John",
-  lastName: "Doe",
-  fullName: "John Doe",
-  title: "Senior Frontend Developer",
-  bio: "I create beautiful, responsive, and user-friendly web applications using modern technologies like React, TypeScript, and CSS. Passionate about clean code and exceptional user experiences.",
+  firstName: "Tihomir",
+  lastName: "Tomovic",
+  fullName: "Tihomir Tomovic",
+  title: "Medior Frontend Developer",
+  bio: "I am a passionate Frontend Developer dedicated to crafting modern, responsive, and accessible web experiences. I focus on clean code, intuitive design, and delivering solutions that delight users and drive business results.",
   avatar: "/placeholder-avatar.jpg",
-  avatarAlt: "John Doe - Senior Frontend Developer",
+  avatarAlt: "Tihomir - Medior Frontend Developer",
   tagline: "Building digital experiences that matter",
-  yearsOfExperience: 5,
+  yearsOfExperience: 4,
 };
 
 export const projects: Project[] = [
   {
-    id: 1,
+    id: generateShortId("project"),
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce application built with React, TypeScript, and Node.js. Features include user authentication, shopping cart, payment integration, and admin dashboard.",
@@ -34,7 +35,7 @@ export const projects: Project[] = [
     liveUrl: "https://ecommerce-demo.example.com",
   },
   {
-    id: 2,
+    id: generateShortId("project"),
     title: "Task Management App",
     description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
     technologies: ["React", "TypeScript", "Socket.io", "Redux Toolkit", "Material-UI"],
@@ -52,7 +53,7 @@ export const projects: Project[] = [
     liveUrl: "https://taskmanager-demo.example.com",
   },
   {
-    id: 3,
+    id: generateShortId("project"),
     title: "Weather Dashboard",
     description: "A responsive weather dashboard that displays current weather, forecasts, and weather maps with location-based services.",
     technologies: ["React", "TypeScript", "OpenWeather API", "Chart.js", "CSS Grid"],
@@ -73,7 +74,7 @@ export const projects: Project[] = [
 
 export const experience: Experience[] = [
   {
-    id: 1,
+    id: generateShortId("experience"),
     company: "Tech Solutions Inc.",
     position: "Senior Frontend Developer",
     startDate: "2022-01",
@@ -90,7 +91,7 @@ export const experience: Experience[] = [
     companyUrl: "https://techsolutions.example.com",
   },
   {
-    id: 2,
+    id: generateShortId("experience"),
     company: "Digital Innovations LLC",
     position: "Frontend Developer",
     startDate: "2020-06",
@@ -108,7 +109,7 @@ export const experience: Experience[] = [
     companyUrl: "https://digitalinnovations.example.com",
   },
   {
-    id: 3,
+    id: generateShortId("experience"),
     company: "StartupXYZ",
     position: "Junior Frontend Developer",
     startDate: "2019-03",

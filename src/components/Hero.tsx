@@ -103,29 +103,18 @@ const Hero: FC = memo(() => {
   const { scrollToElement } = useScrollNavigation();
   const { personalInfo } = usePortfolio();
 
-  // Memoize handlers to prevent unnecessary re-renders
   const handleViewWork = useMemo(() => () => scrollToElement("projects"), [scrollToElement]);
-
   const handleGetInTouch = useMemo(() => () => scrollToElement("contact"), [scrollToElement]);
-
-  // Memoize avatar fallback text
-  const avatarFallback = useMemo(() => {
-    if (!personalInfo?.firstName || !personalInfo?.lastName) {
-      return "JD";
-    }
-    return `${personalInfo.firstName[0]}${personalInfo.lastName[0]}`;
-  }, [personalInfo?.firstName, personalInfo?.lastName]);
+  const avatarFallback = useMemo(() => `${personalInfo.firstName[0]}${personalInfo.lastName[0]}`, [personalInfo?.firstName, personalInfo?.lastName]);
 
   // Use real data from context with fallbacks
   const heroData = useMemo(
     () => ({
-      name: personalInfo?.fullName || "John Doe",
-      title: personalInfo?.title || "Frontend Developer",
-      bio:
-        personalInfo?.bio ||
-        "I create beautiful, responsive, and user-friendly web applications using modern technologies like React, TypeScript, and CSS. Passionate about clean code and exceptional user experiences.",
-      avatar: personalInfo?.avatar || "/placeholder-avatar.jpg",
-      avatarAlt: personalInfo?.avatarAlt || `${personalInfo?.fullName || "John Doe"} - ${personalInfo?.title || "Frontend Developer"}`,
+      name: personalInfo?.fullName,
+      title: personalInfo?.title,
+      bio: personalInfo?.bio,
+      avatar: personalInfo?.avatar,
+      avatarAlt: personalInfo?.avatarAlt,
     }),
     [personalInfo]
   );
@@ -151,7 +140,7 @@ const Hero: FC = memo(() => {
           </div>
           <div className="hero-image">
             <div className="hero-avatar">
-              <HeroAvatar src={heroData.avatar} alt={heroData.avatarAlt} fallbackText={avatarFallback} />
+              <HeroAvatar src={heroData.avatar} alt={heroData.avatarAlt || "Avatar"} fallbackText={avatarFallback} />
             </div>
           </div>
         </div>

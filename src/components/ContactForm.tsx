@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 import type { FC, FormEvent } from "react";
 import "./ContactForm.css";
 
@@ -77,6 +77,7 @@ interface ContactFormProps {
  * Standard React Contact Form using useState and form handling
  */
 export const ContactForm: FC<ContactFormProps> = ({ className = "" }) => {
+  const baseId = useId();
   const [state, setState] = useState<ContactFormState>({
     status: "idle",
   });
@@ -138,7 +139,7 @@ export const ContactForm: FC<ContactFormProps> = ({ className = "" }) => {
   return (
     <form onSubmit={handleSubmit} className={`contact-form ${className}`} noValidate>
       <div className="form-group">
-        <label htmlFor="name" className="form-label">
+        <label htmlFor={`${baseId}-name`} className="form-label">
           Name{" "}
           <span className="required" aria-label="required">
             *
@@ -146,25 +147,25 @@ export const ContactForm: FC<ContactFormProps> = ({ className = "" }) => {
         </label>
         <input
           type="text"
-          id="name"
+          id={`${baseId}-name`}
           name="name"
           value={formData.name}
           onChange={handleInputChange}
           className={`form-input ${isFieldInvalid("name") ? "error" : ""}`}
           aria-invalid={isFieldInvalid("name")}
-          aria-describedby={isFieldInvalid("name") ? "name-error" : undefined}
+          aria-describedby={isFieldInvalid("name") ? `${baseId}-name-error` : undefined}
           disabled={isPending}
           required
         />
         {isFieldInvalid("name") && (
-          <div id="name-error" className="form-error" role="alert">
+          <div id={`${baseId}-name-error`} className="form-error" role="alert">
             {getFieldError("name")}
           </div>
         )}
       </div>
 
       <div className="form-group">
-        <label htmlFor="email" className="form-label">
+        <label htmlFor={`${baseId}-email`} className="form-label">
           Email{" "}
           <span className="required" aria-label="required">
             *
@@ -172,50 +173,50 @@ export const ContactForm: FC<ContactFormProps> = ({ className = "" }) => {
         </label>
         <input
           type="email"
-          id="email"
+          id={`${baseId}-email`}
           name="email"
           value={formData.email}
           onChange={handleInputChange}
           className={`form-input ${isFieldInvalid("email") ? "error" : ""}`}
           aria-invalid={isFieldInvalid("email")}
-          aria-describedby={isFieldInvalid("email") ? "email-error" : undefined}
+          aria-describedby={isFieldInvalid("email") ? `${baseId}-email-error` : undefined}
           disabled={isPending}
           required
         />
         {isFieldInvalid("email") && (
-          <div id="email-error" className="form-error" role="alert">
+          <div id={`${baseId}-email-error`} className="form-error" role="alert">
             {getFieldError("email")}
           </div>
         )}
       </div>
 
       <div className="form-group">
-        <label htmlFor="message" className="form-label">
+        <label htmlFor={`${baseId}-message`} className="form-label">
           Message{" "}
           <span className="required" aria-label="required">
             *
           </span>
         </label>
         <textarea
-          id="message"
+          id={`${baseId}-message`}
           name="message"
           rows={5}
           value={formData.message}
           onChange={handleInputChange}
           className={`form-textarea ${isFieldInvalid("message") ? "error" : ""}`}
           aria-invalid={isFieldInvalid("message")}
-          aria-describedby={isFieldInvalid("message") ? "message-error" : undefined}
+          aria-describedby={isFieldInvalid("message") ? `${baseId}-message-error` : undefined}
           disabled={isPending}
           required
         />
         {isFieldInvalid("message") && (
-          <div id="message-error" className="form-error" role="alert">
+          <div id={`${baseId}-message-error`} className="form-error" role="alert">
             {getFieldError("message")}
           </div>
         )}
       </div>
 
-      <button type="submit" className={`btn btn-primary ${isPending ? "loading" : ""}`} disabled={isPending} aria-describedby="form-status">
+      <button type="submit" className={`btn btn-primary ${isPending ? "loading" : ""}`} disabled={isPending} aria-describedby={`${baseId}-form-status`}>
         {isPending ? (
           <>
             <span className="btn-spinner" aria-hidden="true" />
@@ -227,7 +228,7 @@ export const ContactForm: FC<ContactFormProps> = ({ className = "" }) => {
       </button>
 
       {state.message && (
-        <div id="form-status" className={`form-message ${state.status}`} role="alert" aria-live="polite">
+        <div id={`${baseId}-form-status`} className={`form-message ${state.status}`} role="alert" aria-live="polite">
           {state.message}
         </div>
       )}
